@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8' />
+        <title>FIT5147 S1 2022 Assignment 2</title>
+        <link rel="stylesheet" href="style.css"/>
+        <!-- Load required scripts -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+    </head>
+
+    <body> 
+        <section class="main row" id="section1">
+            <h2>Australian Skilled Migration</h2>
+            <p class="mainP" style="text-align:justify;">
+                Between 2012 and 2021, the landscape of Australian migration changed drastically. Especially, post-Covid when migration policies
+                        significantly changed causing massive dips in migration impacting not only thousands of international migrants who 
+                        had been living and working in Australia for years, but also the Australian economy. 
+                        <br/>
+                        <br/>
+                        
+                        Australian skilled migration operates on a minimum points-score based system where the applicant is scored on several factors such as
+                        their level of education, Australian study requirements, English profeciency, marital status, work experience, and their occupation. Australia prioritises 
+                        certain occupations over others depending on state and nation-wide demands, and these priorities change significantly 
+                        almost every financial year. 
+    
+                        <br/>
+                        <br/>
+    
+                        In 2012, the minimum points required for migration used to be 65 points. Today, it is 100+ points.
+    
+                        The primary reason behind this setting such impossible "standards" was to implicitly stop international migration 
+                        due to Covid, as this couldn't be done explicitly for political reasons. During Covid, Australian migration also 
+                        witnessed the system largely preferring applicants working in the medical field, and drastic changes to visa types where applicants 
+                        were being pushed to live and work in regional areas. 
+    
+                        <br/>
+                        <br/>
+    
+                        In this visualisation, we explore the impacts of Covid and migration policy changes, and speculate the future of Australian migration.
+            </p>
+            <h3 >Overall Trends in Visa Grants</h3>
+            <div>
+                <div class="column">
+                    <h4 style="text-align:left;">Average no. of Visa Grants (2012-21)</h4>
+                    <svg id="chart1" width="500px" height="200px" style="text-align:center;"></svg>
+                    <p style="text-align:center; font-size: smaller; color: gray;">Hover on bar to read stats</p>
+                    <p id="chart1Year" style="text-align:center;">Year:</p>
+                    <p id="chart1Vol" style="text-align:center;">Average no. of Grants:</p>
+
+                </div>
+
+                <div class="column">
+                    <h4>% Decrease in Grants by Visa Type</h4>
+                    <svg id="chart2" width="500px" height="200px" style="text-align:center;"></svg>
+                    <p style="text-align:center; font-size: smaller; color: gray;">Hover on bar to read stats</p>
+                    <p id="chart2Visa" style="text-align:center;">Visa:</p>
+                    <p id="chart2Perc" style="text-align:center;">% Decrease from 2012:</p>
+                    <!-- <svg id="chart2Label" width="150px" height="200px" style="text-align:center;"></svg> -->
+                </div>
+
+            </div>
+            <p class="mainP">By 2021, Australian visa grants has fallen by approximately 50% from 23.7k yearly average in 2012 to 11.3k in 2021. The largest drop was 
+                obsevered for working holidays visas and visitor visas that decreased by 82% and 95% respectively. This was closely followed by a significant 81% decrease in skilled 
+                independent visas, which means now only about 20% of the applicants are able to get a permanent residency in Australia. Other PR visa types such as 
+                employre sponsorship and state nomination visas experienced a reasonable decrease in grants as well.
+
+                <br/>
+                <br/>
+                Alongside the impacts of Covid-19, changes in Australian migration policies also played a key role in this devastating decrease. Between 2012 and 2021, Melbourne population 
+                increased by a million. Similar trends were seen in Sydney and Perth. According to U.N. projections, the metropolitan population in Australia is expected to rise 
+                by a collective of 3 million by 2030, impacting the living standards of these Australian cities. With skilled independent PR visas, most migrants choose to 
+                live in these metro cities due to high living standards and work opportunities. To battle the population growth and to also improve the opportunities in outer metro areas, 
+                the Australian government made changes to migration policies. These changes include drastically reducing the ceiling quota for skilled independent PR grants, and increasing 
+                grants for state nomination and regional visas. 
+    
+            </p>
+            
+        </section>
+
+        <section class="main row" id="section2">
+            <h3>Trends in Skilled Occupation</h3> 
+            <p class="mainP" style="text-align:justify;"">To be eligible for an Australian PR, the applicant has to be in a profession listed in the Australian skilled occupation list (SOL). 
+                The list is updated every year, however a few occupations have held their places as the top occupations. They are accountants, civil engineers, GP and medical officers, 
+                IT analysts, nurses and software developers/programmers. 
+
+                <br/>
+                <br/>
+
+                Generally, programmers and accountants each hold about 30% of the allocated pro-rata occupation quota, making up the majority (~60% of total). Overall, little has changed in this distribution of occupation 
+                between 2012 and 2021, as one can see in the pie charts below. However, the state-wide demands for each of these occupations have changed significantly over the last 10 years, which is relfected 
+                in PR grants when analysed by visa type. 
+                
+            </p>
+            <p style="text-align:center; font-size: smaller; color: gray;">Hover on pies to read stats</p>
+            <div>
+                <div class="column">
+                    <h5>Top occupations in 2012</h5>
+                    <svg id="chart3" width="500px" height="200px" style="text-align:center;"></svg>
+                    <p id="pie1pro" style="text-align:center;">Occupation:</p>
+                    <p id="pie1perc" style="text-align:center;">% in 2012:</p>
+
+                </div>
+
+                <div class="column">
+                    <h5>Top occupations in 2021</h5>
+                    <svg id="chart4" width="500px" height="200px" style="text-align:center;"></svg>
+                    <p id="pie2pro" style="text-align:center;">Occupation:</p>
+                    <p id="pie2perc" style="text-align:center;">% in 2021:</p>
+
+                </div>
+            </div>
+
+            <p style="text-align:justify;">In the earlier years (2012-2019), accountants were high in demand nation-wide. This is why a high number of skilled independent visa grants 
+                were observed for accountants. On the other hand, nurses were getting PR mostly through employer sponsorship, meaning that there was only hospital-specific 
+                demand for nurses. Over the years, fewer accountants received PR through skilled independent/state nomination visas as the demand 
+                saturated. On the contrary, specially during and after Covid-19, the nation-wide demand for nurses/GP/medical officers surged thus reflecting a higher number of PR grants 
+                through skilled independent visa. As for IT-related occupations such as programmers and analysts, the nation-wide demand has remained relatively stable 
+                and that is seen through little to no changes in skilled independent visa grants. However, in recent years (2019-2021), more and more applicants 
+                have been receiving PR through employer sponsorship visa.</p>
+
+        </section>
+
+        <section class="main row" id="section3">
+            <h3>Top Migration Countries</h3>
+            <div>
+                <div class="column">
+                    
+                    <svg id="chart5" width="500px" height="250px" style="text-align:center;"></svg>
+                    <p style="text-align:center; font-size: smaller; color: gray;">Hover on bar to read stats</p>
+                    <p id="chart5Country" style="text-align:center;">Country:</p>
+                    <p id="chart5Vol" style="text-align:center;">Average yearly volume:</p>
+                    <p id="chart5Visa" style="text-align:center;">Primary Visa Type:</p>
+
+                </div>
+                <div class="column">
+                    <p class="mainP" style="text-align:justify;">Exploration of Australian migration statistics reveal the top migration countries are India, China,
+                    UK, Phillipines and Pakistan. The chart on the left shows the average yearly visa grants given to migrants from these top countries. It was also observed
+                in the exploration that certain countries tend to get permament residency (PR) through certain visa subclasses more than the others. 
+                <br/>
+                <br/>
+                For example, most Chinese migrants get Australian PR through business investment visa. This is likely due to a significant trade relationship
+            between Australia and China. On the other hand, migrants from India and Pakistan have mostly received PR through skilled independent visa stream which is entirely 
+        point-based and the applicants are evaluated based on their individual skills. Finally, migrants from the UK and Phillipines have mostly received PR through employer sponsorship.</p>
+
+                </div>
+            </div>
+            
+           
+
+        </section>
+
+        <section class="main row">
+            <h3>The Future of Australian Migration</h3>
+            <p class="mainP">
+                Even though the Australian migration halted and drastically changed over the last 10 years, it is expected that 
+                things will pick up in the upcoming financial year 2023. It is speculated that along with natural disasters, certain policy changes under the liberal government rule in the past 10 years 
+                worked against the favour of migrants. As borders open post-Covid, volume of PR grants are rising as Australia hopes to financially recover from the loss of visitors and international students. Especially, after the recent election of labour party in goverment, there are 
+                promises of migration quota to increase in STEM and pro-rata occupations.
+                It has also been observed that STEM occupations remain relatively in-demand, so that is good news for international students who mostly study STEM degrees in Australia. Specially for tech students, 
+                there are also increased opportunities for them now as both skilled independent visa and employer sponsorship visa pathways are open. Australia has also introduced new visa stream called global talent PR that recognises 
+                talent in STEM around the world. In a nutshell, despite the bleak migration volumes, if one has the skills and talent, there still might be hope for them to live and work permamently in Australia if they wish to do so.
+
+            </p>
+
+        </section>
+
+    </body>
+    <script type="text/javascript">
+
+        var lineChart1_data = "https://raw.githubusercontent.com/nateruze/aus_migration_data_22/main/linechart1.csv"
+        var lineChart2_data = "https://raw.githubusercontent.com/nateruze/aus_migration_data_22/main/linechart2.csv"
+        var lineChart3_data = "https://raw.githubusercontent.com/nateruze/aus_migration_data_22/main/pie_chart.csv"
+        var top_countries_data = "https://raw.githubusercontent.com/nateruze/aus_migration_data_22/main/top_countries.csv"
+
+
+        var width = 200; // width of svg
+        var scaleFactor = 10;
+        var barHeight = 20;
+        var barHeight2 = 50;
+        
+
+        window.onload = function() {
+            var chart_one = d3.select("#chart1")
+            var chart_two = d3.select("#chart2")
+            var chart_three = d3.select("#chart3")
+            var chart_four = d3.select("#chart4")
+            var chart_five = d3.select("#chart5")
+
+       
+            var formatDecimalComma = d3.format(",.2f")
+            var formatComma = d3.format(",")
+            var arc1 = d3.arc().innerRadius(30).outerRadius(100);
+
+
+
+            d3.csv(lineChart1_data, function(data) {
+
+                chart_one.selectAll("rect")
+                    .data(data)
+                    .enter() // creates placeholders
+                    .append("rect")
+                    .attr("class", "bar1")
+                    .on("mouseenter", function(d, i) {
+                       // console.log(d);
+                       d3.select(this)
+                       .attr("class", "barHover")
+                       .attr("height", barHeight - 1)
+                       .attr("width", function(d) {
+                        return d.avg_vol / 90;
+                    });
+
+                        d3.select("#chart1Year")
+                            .html("Year: " + d.Year);
+                        d3.select("#chart1Vol")
+                            .html("Average no. of Grants: " + formatComma(d.avg_vol));
+                        
+                        
+                        
+                    })
+                    .on("mouseleave", function(d,i){
+                        //console.log("erased");
+                        d3.select(this)
+                        .attr("class", "bar1")
+                        .attr("height", barHeight - 2)
+                        .attr("width", function(d) {
+                        return d.avg_vol / 100;
+                    });
+
+                    d3.select("#chart1Year")
+                            .html("Year: ");
+                        d3.select("#chart1Vol")
+                            .html("Average no. of Grants: ");
+                        
+                    })
+                    .attr("transform", function(d,i) {
+                        return "translate(0,"+i*barHeight+")";
+                    })
+                    .attr("width", function(d) {
+                        return d.avg_vol / 100;
+                    })
+                    .attr("height", barHeight - 2)
+                    .append("text")
+                    .attr("x", function(d) {
+                        return (d.Year);
+                    })
+                    .attr("y", barHeight)
+                    .attr("dy", ".35em")
+                    .text(function(d){
+                        return (d.Year);
+                    })
+                
+
+
+           
+        
+        
+                
+                    
+            })
+
+            d3.csv(lineChart2_data, function(data) {
+
+                chart_two.selectAll("rect")
+                    .data(data)
+                    .enter() // creates placeholders
+                    .append("rect")
+                    .attr("transform", function(d,i) {
+                       // return "translate(-0,"+(i*barHeight)+")";
+                        return "translate("+(i*barHeight2)+", 0)";
+                    })
+                    .attr("height", function(d) {
+                        return (d.perc_decrease * 200);
+                    })
+                    .attr("width", barHeight2 - 10)
+                    .style("fill", function(d,i) {
+                        if (d.Visa == "Employee Sponsor") {return "#e07a5f";}
+                        else if (d.Visa == "Skilled Independent") {return "#3d405b";}
+                        else if (d.Visa == "State/territory Nominated") {return "#d5bdaf";}
+                        else if (d.Visa == "Visitor") {return "#81b29a";}
+                        else if (d.Visa == "Student") {return "#f2cc8f";}
+                        else if (d.Visa == "Working Holiday") {return "#006d77";}
+                    })
+                    .on("mouseenter", function(d, i) {
+                       // console.log(d);
+                       d3.select(this)
+                       .style("fill", "#a8dadc")
+                       .attr("height", function(d) {
+                        return (d.perc_decrease * 220);
+                    }).transition.duration(500)
+                
+                    
+
+                    d3.select("#chart2Visa")
+                            .html("Visa: " + d.Visa);
+                        d3.select("#chart2Perc")
+                            .html("% decrease from 2021: " + formatDecimalComma(d.perc_decrease * 100) +"%");
+                  
+                    })
+                    .on("mouseleave", function(d, i) {
+                       // console.log(d);
+                       d3.select(this)
+                       .style("fill", function(d,i) {
+                        if (d.Visa == "Employee Sponsor") {return "#e07a5f";}
+                        else if (d.Visa == "Skilled Independent") {return "#3d405b";}
+                        else if (d.Visa == "State/territory Nominated") {return "#d5bdaf";}
+                        else if (d.Visa == "Visitor") {return "#81b29a";}
+                        else if (d.Visa == "Student") {return "#f2cc8f";}
+                        else if (d.Visa == "Working Holiday") {return "#006d77";}
+                        
+                    })
+                        .attr("height", function(d) {
+                        return (d.perc_decrease * 200);
+                    })
+
+                    d3.select("#chart2Visa")
+                            .html("Visa: ");
+                        d3.select("#chart2Perc")
+                            .html("% decrease from 2021: ");
+                    })
+                    .append("text")
+                    .attr("y", function(d) {
+                        return (d.Visa);
+                    })
+                    .attr("x", (barHeight2/2))
+                    .attr("dy", ".35em")
+                    .attr("dx", "10px")
+                    .text(function(d){
+                        return (d.Visa);
+                    })
+
+
+                    // label_two.selectAll("cirlcle")
+                    // .data(data)
+                    // .enter() // creates placeholders
+                    // .append("circle")
+                    // .attr("cx", 20)
+                    // .attr("cy", function(d,i){ return 50 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+                    // .attr("r", 7)
+                    // .style("fill", function(d){ return color(d)})
+
+                    // label_two.selectAll("mylabels")
+                    //     .data(data)
+                    //     .enter()
+                    //     .append("text")
+                    //         .attr("x", 100)
+                    //         .attr("y", function(d,i){ return 52 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+                    //         .style("fill", function(d){ return "red"})
+                    //         .text(function(d){ return d.Visa})
+                    //         .attr("text-anchor", "left")
+                    //         .style("alignment-baseline", "middle")
+                                    
+
+            })
+
+            d3.csv(top_countries_data, function(data) {
+
+                chart_five.selectAll("rect")
+                    .data(data)
+                    .enter() // creates placeholders
+                    .append("rect")
+                    .attr("transform", function(d,i) {
+                       // return "translate(-0,"+(i*barHeight)+")";
+                        return "translate(0,"+(i*barHeight2)+")";
+                    })
+                    .attr("width", function(d) {
+                        return (d.vol/300);
+                    })
+                    .attr("height", barHeight2 - 10)
+                    .style("fill", function(d,i) {
+                        if (d.country == "India") {return "#e07a5f";}
+                        else if (d.country == "China") {return "#3d405b";}
+                        else if (d.country == "UK") {return "#d5bdaf";}
+                        else if (d.country == "Phillipines") {return "#81b29a";}
+                        else if (d.country == "Pakistan") {return "#f2cc8f";}
+                        
+                       
+                    })
+                    .on("mouseenter", function(d, i) {
+                       // console.log(d);
+                       d3.select(this)
+                       .style("fill", "#a8dadc")
+                       .attr("width", function(d) {
+                        return (d.vol/300);
+                    })
+
+                    d3.select("#chart5Country")
+                            .html("Country: "+ d.country);
+                        d3.select("#chart5Vol")
+                            .html("Average yearly volume: "+ formatComma(d.vol));
+                        d3.select("#chart5Visa")
+                        .html("Primary Visa Type: "+d.visa);
+                  
+                    })
+                    .on("mouseleave", function(d, i) {
+                       // console.log(d);
+                       d3.select(this)
+                       .style("fill", function(d,i) {
+                        if (d.country == "India") {return "#e07a5f";}
+                        else if (d.country == "China") {return "#3d405b";}
+                        else if (d.country == "UK") {return "#d5bdaf";}
+                        else if (d.country == "Phillipines") {return "#81b29a";}
+                        else if (d.country == "Pakistan") {return "#f2cc8f";}
+                        
+                    })
+                        .attr("width", function(d) {
+                        return (d.vol/300);
+                    })
+
+                    d3.select("#chart5Country")
+                            .html("Country: ");
+                        d3.select("#chart5Vol")
+                            .html("Average yearly volume: ");
+                        d3.select("#chart5Visa")
+                        .html("Primary Visa Type: ");
+                })
+                    .append("text")
+                    .attr("x", function(d) {
+                        return (d.visa);
+                    })
+                    .attr("y", (barHeight2/2))
+                    .attr("dy", ".35em")
+                    .text(function(d){
+                        return (d.visa);
+                    })
+
+
+            })
+
+            d3.csv(lineChart3_data, function(data) {
+
+                var pie1 = d3.pie();
+                console.log(pie1(data.map(function(d) {
+                    return d.perc_y12;
+                })))
+
+                var pie1_g = chart_three.append('g')
+                var occupation = "";
+                                        
+                var colour = d3.scaleOrdinal(["#a2d2ff", "#ffafcc", "#9d8189", "#cdb4db", "#006d77", "#bde0fe"])
+
+               
+
+                chart_three.selectAll('arc').data(pie1(data.map(function(d) {
+                    return d.perc_y12;
+                }))).enter().append('path').attr("transform", "translate(200, 100)").attr("class", "arc")
+                    .attr("fill", function(d,i) {
+                        if (d.data == "0.30") {return "#a2d2ff";}
+                        else if (d.data == "0.16") {return "#ffafcc";}
+                        else if (d.data == "0.32") {return "#9d8189";}
+                        else if (d.data == "0.10") {return "#cdb4db";}
+                        else if (d.data == "0.07") {return "#bde0fe";}
+                        else if (d.data == "0.05") {return "#006d77";}
+                    }).attr('d', arc1).on("mouseenter", function(d, i) {
+                        // console.log(d);
+                        d3.select(this)
+                        .style("fill", "#a8dadc")
+
+                        if (d.data == "0.30") {d3.select("#pie1pro").html("Occupation: Software developers/programmers");};
+                        if (d.data == "0.16") {d3.select("#pie1pro").html("Occupation: Registered nurses");};
+                        if (d.data == "0.32") {d3.select("#pie1pro").html("Occupation: Accountants");};
+                        if (d.data == "0.10") {d3.select("#pie1pro").html("Occupation: IT analysts");};
+                        if (d.data == "0.07") {d3.select("#pie1pro").html("Occupation: Civil Engineers");};
+                        if (d.data == "0.05") {d3.select("#pie1pro").html("Occupation: GP and medical officers");};
+
+                       
+                        d3.select("#pie1perc")
+                            .html("% in 2012: " + d.data +"%");
+
+                        
+                        }).on("mouseleave", function(d, i) {
+                        //console.log(d);
+                        d3.select(this)
+                        .style("fill", function(d,i) {
+                            if (d.data == "0.30") {return "#a2d2ff";}
+                        else if (d.data == "0.16") {return "#ffafcc";}
+                        else if (d.data == "0.32") {return "#9d8189";}
+                        else if (d.data == "0.10") {return "#cdb4db";}
+                        else if (d.data == "0.07") {return "#bde0fe";}
+                        else if (d.data == "0.05") {return "#006d77";}
+
+                        })
+
+                        d3.select("#pie1pro")
+                            .html("Occupation:");
+                        d3.select("#pie1perc")
+                            .html("% in 2012: ");
+                
+                            
+                        });
+
+                        
+
+            chart_four.selectAll('arc').data(pie1(data.map(function(d) {
+                    return d.perc_y21;
+                }))).enter().append('path').attr("transform", "translate(220, 100)").attr("class", "arc")
+                .attr("fill", function(d,i) {
+                    if (d.data == "0.30") {return "#a2d2ff";}
+                        else if (d.data == "0.25") {return "#ffafcc";}
+                        else if (d.data == "0.17") {return "#9d8189";}
+                        else if (d.data == "0.11") {return "#cdb4db";}
+                        else if (d.data == "0.09") {return "#bde0fe";}
+                        else if (d.data == "0.091") {return "#006d77";}
+            }).attr('d', arc1).on("mouseenter", function(d, i) {
+                        // console.log(d);
+                        d3.select(this)
+                        .style("fill", "#a8dadc")
+
+                        d3.select("#pie2perc")
+                            .html("% in 2021: " + d.data +"%");
+                        
+                        if (d.data == "0.30") {d3.select("#pie2pro").html("Occupation: Software developers/programmers");};
+                        if (d.data == "0.25") {d3.select("#pie2pro").html("Occupation: Registered nurses");};
+                        if (d.data == "0.17") {d3.select("#pie2pro").html("Occupation: Accountants");};
+                        if (d.data == "0.11") {d3.select("#pie2pro").html("Occupation: IT analysts");};
+                        if (d.data == "0.09") {d3.select("#pie2pro").html("Occupation: Civil Engineers");};
+                        if (d.data == "0.091") {d3.select("#pie2pro").html("Occupation: GP and medical officers");};
+                        
+                        }).on("mouseleave", function(d, i) {
+                       // console.log(d);
+                        d3.select(this)
+                        .style("fill", function(d,i) {
+                            if (d.data == "0.30") {return "#a2d2ff";}
+                        else if (d.data == "0.25") {return "#ffafcc";}
+                        else if (d.data == "0.17") {return "#9d8189";}
+                        else if (d.data == "0.11") {return "#cdb4db";}
+                        else if (d.data == "0.09") {return "#bde0fe";}
+                        else if (d.data == "0.091") {return "#006d77";}
+
+                        });
+
+                        d3.select("#pie2perc")
+                            .html("% in 2021: ");
+                        d3.select("#pie2pro")
+                            .html("Occupation: ");
+                    })
+
+            })
+
+            
+
+            
+
+           
+
+        }
+    </script>
+</html>
